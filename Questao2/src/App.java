@@ -1,4 +1,3 @@
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -23,7 +22,7 @@ public class App {
 
         double menorDistancia = 100000000.0;
         Map<Ponto, Ponto> menores = new HashMap<>();
-        ArrayList<Ponto> menoresPontos = new ArrayList<>();
+
         double holder = 0;
         for (int i = 0; i < lista.length - 1; i++) {
             for (int j = i + 1; j < lista.length; j++) {
@@ -31,15 +30,10 @@ public class App {
                 System.out.println("Distancia:" + holder);
                 if (holder < menorDistancia) {
                     menores.clear();
-                    menoresPontos.clear();
                     menorDistancia = holder;
                     menores.put(lista[i], lista[j]);
-                    menoresPontos.add(lista[i]);
-                    menoresPontos.add(lista[j]);
                 } else if (holder == menorDistancia) {
                     menores.put(lista[i], lista[j]);
-                    menoresPontos.add(lista[i]);
-                    menoresPontos.add(lista[j]);
                 }
             }
         }
