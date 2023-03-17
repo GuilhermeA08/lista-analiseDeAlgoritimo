@@ -1,0 +1,2 @@
+O estado E3, pq com o algorítimo pra calcular a distância apresentado,
+o estado que fica com os menores valores de distância é o E3

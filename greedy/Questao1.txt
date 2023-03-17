@@ -1,0 +1,3 @@
+A primeira característica é a propriedade da escolha ótima. Isso significa que, em cada etapa, uma escolha localmente ótima deve ser feita, a fim de obter a solução globalmente ótima. No problema da mochila binária, não há garantia de que a escolha localmente ótima levará a uma solução globalmente ótima.
+
+A segunda característica é a propriedade da subestrutura ótima. Onde a solução ótima para o problema global contém soluções ótimas para os subproblemas menores. No problema da mochila binária, os subproblemas menores não necessariamente levam a soluções ótimas para o problema global.
