@@ -1,3 +1,4 @@
+//cspell:ignore Noglonia Noglônia Quadradônia posicaoDeInsercao
 package greedy;
 
 import java.io.IOException;
@@ -43,7 +44,7 @@ public class Question5 {
     // Percorre os soldados da Quadradônia
     for (int i = 0; i < numeroDeSoldados; i++) {
       // Verifica se o soldado da Noglônia é maior que o da Quadradônia
-      for (int j = 0; j < numeroDeSoldados; j++) {
+      for (int j = soldadosNoglônia.size() - 1; j >= 0; j--) {
         if (soldadosNoglônia.get(j) > soldadosQuadradônia.get(i)) {
           // Se for, incrementa o número de vitórias da Noglônia
           numeroDeVitoriasDeNoglonia++;
