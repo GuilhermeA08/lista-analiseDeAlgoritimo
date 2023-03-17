@@ -1,34 +1,34 @@
 def sapoDinamico(pedras):
 
-    vezI = True  # inicialmente a proxima pedra pequena o sapo da ida pode pular
+    vezI = True
     solucao = []
 
-    sapoI = int(pedras[0][2:])  # sapo da ida inicia em 0
-    sapoV = int(pedras[0][2:])  # sapo da volta tb pq ele vai fazer o percurso da volta, so que inverso
+    sapoI = int(pedras[0][2:])  
+    sapoV = int(pedras[0][2:])  
 
     for x in range(1, len(pedras)):
 
         pedraAtualDist = int(pedras[x][2:])
         pedraAtualTipo = pedras[x][0]
 
-        if pedraAtualTipo == 'S':  # se a pedra for pequena, so um sapo pode usar
+        if pedraAtualTipo == 'S':  
 
-            if vezI:  # se for a vez do sapo da ida
+            if vezI:  
 
-                saltoI = abs(pedraAtualDist - sapoI)  # tamanho do pulo que o sapo da ida vai dar
-                sapoI = pedraAtualDist  # o sapo deu o pulo e ficou na pedra
-                solucao.append(saltoI)  # o salto é contado na solucao
+                saltoI = abs(pedraAtualDist - sapoI)  
+                sapoI = pedraAtualDist  
+                solucao.append(saltoI)  
 
-                vezI = False  # proxima vez é so sapo da Volta
+                vezI = False  
 
-            else:  # vez do sapo da volta
+            else:  
                 saltoJ = abs(pedraAtualDist - sapoV)
                 sapoV = pedraAtualDist
                 solucao.append(saltoJ)
 
-                vezI = True  # proxima vez é so sapo da Ida
+                vezI = True 
 
-        else:  # se for grande, os dois sapos pulam pra ela
+        else:  
             saltoI = abs(pedraAtualDist - sapoI)
             saltoJ = abs(pedraAtualDist - sapoV)
             sapoI = pedraAtualDist
@@ -43,8 +43,8 @@ def formataPedras(p, m):
     pedraMargemD = 'B-' + m
     pedraMargemE = 'B-0'
 
-    p.insert(0, pedraMargemE)  # adiciona a margem esquerda
-    p.append(pedraMargemD)  # adiciona a margem direita
+    p.insert(0, pedraMargemE)  
+    p.append(pedraMargemD)  
 
     return p
 
@@ -56,7 +56,7 @@ if __name__ == '__main__':
     for x in range(casos):
         distMargem = input().split()[1]
 
-        pedras = input().split()  # B big, S small, Int N
+        pedras = input().split() 
 
         pedras = formataPedras(pedras, distMargem)
 
