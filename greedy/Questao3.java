@@ -8,34 +8,35 @@ public class Questao3 {
         int a = sc.nextInt();
         int b = sc.nextInt();
         String stones = sc.next().trim();
-        int total = 0;
         char[] characters = stones.toCharArray();
+        int start = 0;
+        int end = stones.length() - 1;
+        int total = 0;
 
-        for (int i = 0; i < characters.length; i++) {
-            if (characters[i] == 'B')
+        while (start < end) {
+            if (characters[start] == 'B') {
+                start++;
                 continue;
-
-            for (int j = i + 1; j < characters.length; j++) {
-
-                if (characters[j] == 'B' && j == i + 1) {
-                    total -= b;
-                    char temp = characters[j];
-                    characters[j] = characters[i];
-                    characters[i] = temp;
-                    break;
-                }
-                if (characters[j] == 'B') {
-                    total += a;
-                    char temp = characters[j];
-                    characters[j] = characters[i];
-                    characters[i] = temp;
-                    break;
-                }
-
             }
+    
+            if (characters[end] == 'W') {
+                end--;
+                continue;   
+            }
+
+            if (end == start + 1) {
+                total -= b;
+            }
+
+            total += a;
+            char temp = characters[end];
+            characters[end] = characters[start];
+            characters[start] = temp;
+
         }
 
         System.out.println(total);
+        sc.close();
 
     }
 }
