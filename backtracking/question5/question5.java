@@ -1,38 +1,64 @@
 package backtracking.question5;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class question5 {
 
-  static Scanner sc = new Scanner(System.in);
+  public static Scanner sc = new Scanner(System.in);
+
+  private static final char[] ALPHABET = { 'N', 'O', 'P' };
+  private static String firstSolution = null;
 
   public static void main(String[] args) {
-    int entrada = sc.nextInt();
+    // Entradas
+    ArrayList<Integer> entradas = new ArrayList<Integer>();
 
-    genetic(entrada);
-    // while (entrada != 0) {}
-  }
+    int n = sc.nextInt();
 
-  public static void genetic(int entrada) {
-    char[] vetor = new char[entrada];
-    backtracking(entrada - 1, vetor);
-
-    for (int i = 0; i < entrada; i++) {
-      System.out.print(vetor[i]);
+    // Leitura das entradas
+    while (n != 0) {
+      entradas.add(n);
+      n = sc.nextInt();
     }
-    System.out.println();
+
+    entradas.add(0);
+
+    // Processamento
+    for (int i = 0; i < entradas.size(); i++) {
+      int index = entradas.get(i);
+      generateThueMorse("", index);
+      firstSolution = null;
+    }
   }
 
-  public static void backtracking(int entrada, char[] vetor) {
-    if (entrada < 0) {
+  public static void generateThueMorse(String sequence, int n) {
+    if (n == 0 && firstSolution == null) {
+      firstSolution = sequence;
+      System.out.println(sequence);
       return;
     }
-    backtracking(entrada - 1, vetor);
 
-    if (entrada == 0) {
-      vetor[entrada] = 'N';
-    } else {
-      vetor[entrada] = 'O';
+    for (char c : ALPHABET) {
+      if (!containsForbiddenSubsequence(sequence + c)) {
+        generateThueMorse(sequence + c, n - 1);
+      }
+      if (firstSolution != null) {
+        return;
+      }
     }
+  }
+
+  public static boolean containsForbiddenSubsequence(String sequence) {
+    String str = new String(sequence);
+    int length = str.length();
+    for (int i = 1; i <= length / 2; i++) {
+      String first = str.substring(length - i - i, length - i);
+      String second = str.substring(length - i, length);
+      if (first.equals(second)) {
+        return true;
+      }
+    }
+    return false;
   }
 }
