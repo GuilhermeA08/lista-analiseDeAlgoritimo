@@ -1,3 +1,5 @@
+package divideAndConquer;
+
 import java.util.Scanner;
 
 public class Questao4 {
