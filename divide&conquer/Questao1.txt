@@ -1,0 +1,3 @@
+a) Sim, pois ele divide os elementos da entrada sucessivamente e trabalha com arrays reduzidos.
+
+b) 
