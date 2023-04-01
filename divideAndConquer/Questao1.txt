@@ -1,3 +1,4 @@
 a) Sim, pois ele divide os elementos da entrada sucessivamente e trabalha com arrays reduzidos.
 
-b) 
+b) N -1, por que para toda entrada de Tamanho N, o algoritmo dividira até arrays de tamanho 1 e fará
+n -1  comparações até a ultima chamada da pilha;
