@@ -1,0 +1,10 @@
+Para resolver o Problema do Segmento de Soma Máxima usando programação dinâmica, podemos usar a seguinte ideia:
+
+- Criar um vetor auxiliar 'dp' com o mesmo tamanho do vetor de entrada 'A';
+- Inicializar o primeiro elemento de 'dp' com o primeiro elemento de 'A';
+- Para cada posição 'i' do vetor 'A', 
+  calcular o valor 'dp[i]' como o máximo entre o próprio elemento 'A[i]'
+  e a soma entre 'A[i]' e o valor anterior de 'dp[i-1]';
+- O valor da solidez do vetor é o máximo elemento de 'dp'.
+
+A complexidade assintótica do algoritmo é O(n), pois ele percorre o vetor de entrada apenas uma vez.
